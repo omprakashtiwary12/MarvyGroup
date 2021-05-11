@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_design"
+        android:layout_height="@dimen/detail_backdrop_height"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp">
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                <RelativeLayout
+                    android:id="@+id/activityMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_design"
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="60dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="40dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/app_logo"
+                                android:src="@drawable/marvy_app_sticker"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/app_name_logo"
+                                android:layout_below="@+id/app_logo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|top"
+                                android:text="Marvy Group"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@color/colorPrimary"
+                                android:layout_centerHorizontal="true"
+                                android:textAllCaps="true"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/tv1"
+                                android:text="@string/policy"
+                                android:textColor="@color/colorAccent"
+                                android:layout_marginTop="10dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@+id/app_name_logo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/txt_apply"
+                                android:layout_below="@+id/tv1"
+                                android:text=" Reset Password ! "
+                                android:textColor="@color/red_dark2"
+                                android:textSize="18sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/aclonica"
+                                android:layout_marginTop="20dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/ll_container_fields"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv1"
+                                android:orientation="vertical"
+                                android:layout_marginTop="95dp"
+                                android:layout_marginBottom="45dp"
+                                >
+
+                                <EditText
+                                    android:id="@+id/et_email"
+                                    style="@style/EditTextFormField"
+                                    android:hint="Employee Code"
+                                    android:textStyle="normal"
+                                    android:fontFamily="@font/numans"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:background="@drawable/bg_form_field_top"
+                                    android:inputType="textPersonName"
+                                    android:imeOptions="actionNext"
+                                    />
+
+                                <EditText
+                                    android:id="@+id/et_password"
+                                    style="@style/EditTextFormField"
+                                    android:hint="New Password"
+                                    android:fontFamily="@font/numans"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/bg_form_field_square"
+                                    android:inputType="textPassword"
+                                    android:imeOptions="actionNext"
+                                    />
+                                <EditText
+                                    android:id="@+id/et_confirm_password"
+                                    style="@style/EditTextFormField"
+                                    android:hint="Confirm New Password"
+                                    android:fontFamily="@font/numans"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/bg_form_field_square"
+                                    android:inputType="textPassword"
+                                    android:imeOptions="actionNext"
+                                    />
+                            </LinearLayout>
+                            <Button
+                                android:id="@+id/login"
+                                android:layout_below="@+id/ll_container_fields"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="15dp"
+                                android:padding="12dp"
+                                android:background="@color/colorAccent"
+                                android:text="@string/send"
+                                android:fontFamily="@font/numans"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/circularProgressBar"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:layout_centerInParent="true"
+                                app:cpb_indeterminate_mode="true"
+                                app:cpb_progress="0"
+                                app:cpb_progress_max="100"
+                                app:cpb_progressbar_color_start="#fff"
+                                app:cpb_progressbar_color_end="#000"
+                                app:cpb_background_progressbar_width="1dp"
+                                app:cpb_progress_direction="to_right"
+                                app:cpb_progressbar_color="@color/colorAccent"
+                                app:cpb_progressbar_width="1dp"
+                                app:cpb_round_border="false" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

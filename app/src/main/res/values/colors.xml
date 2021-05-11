@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#293C52</color>
+    <color name="colorPrimaryDark">#001629</color>
+    <color name="colorAccent">#293C52</color>
+    <color name="colorAccent_dup">#D81B60</color>
+    <color name="igleWhite">#E5E5E0</color>
+    <color name="iceWhite">#F7F7F7</color>
+    <color name="colorCalculatorBackground">@android:color/white</color>
+    <color name="colorCalculatorNumberCurrentText">@android:color/black</color>
+    <color name="colorCalculatorNumberHistoryText">@android:color/darker_gray</color>
+    <color name="colorCalculatorButtonMemory">@color/colorTeal</color>
+    <color name="colorCalculatorButtonNumber">@android:color/black</color>
+    <color name="colorCalculatorButtonAction">@color/colorBlueGrey</color>
+    <color name="colorCalculatorButtonsArea">@color/colorLightGrey</color>
+    <color name="colorCalculatorButtonsText">@android:color/white</color>
+
+
+    <color name="blue_grey">#607d8b</color>
+    <color name="emphasis">#31b6e7</color>
+    <color name="colorTeal">#009688</color>
+    <color name="colorLightGrey">#E0E0E0</color>
+    <color name="colorBlueGrey">#607D8B</color>
+    <color name="shadow">#d0d8dc</color>
+    <color name="black_effective">#2a2a2a</color>
+
+    <!--Design colors-->
+    <color name="red_dark">#F06423</color>
+    <color name="red_dark2">#D85A1B</color>
+    <color name="cyan_light">#c9ebee</color>
+    <color name="cyan">#b5e3e7</color>
+    <color name="cyan_dark">#70BDC6</color>
+    <color name="navy_blue">#214258</color>
+    <color name="navy_blue_dark">#1C3A4E</color>
+    <color name="light_green">#78DC96</color>
+    <color name="light_blue">#55C8F0</color>
+    <color name="blue_black_dark">#13171d</color>
+    <color name="blue_black_light">#516179</color>
+    <color name="blue_grey_light">#A5B4C8</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#fff44f</color>
+    <color name="dark_grey">#666772</color>
+    <color name="grey">#989fcb</color>
+    <color name="sunflower_black">#de000000</color>
+    <color name="sunflower_gray_50">#fafafa</color>
+    <color name="sunflower_gray_50_a600">#99fafafa</color>
+    <color name="sunflower_green_300">#6dc790</color>
+    <color name="sunflower_green_500">#b00020</color>
+    <color name="sunflower_green_700">#005d2b</color>
+    <color name="sunflower_green_900">#1a231e</color>
+    <color name="sunflower_white">#deffffff</color>
+    <color name="sunflower_yellow_300">#f8f99f</color>
+    <color name="sunflower_yellow_500">#ffff63</color>
+
+    <color name="et_stroke_color">#4F666772</color>
+    <color name="et_text_color">#888888</color>
+
+    <color name="colorText">#666666</color>
+    <color name="colorLink">#00A6FF</color>
+    <color name="colorNavButton">#77D353</color>
+    <color name="colorViewLine">#DDDDDD</color>
+
+    <color name="colorNavItemSelected">#F1F1F1</color>
+
+    <color name="colorLightGreenBox">#BB77D353</color>
+
+    <color name="colorOrangeInfo">#FF9052</color>
+
+    <color name="colorLightYellowBox">#BBFFF150</color>
+
+    <!--
+        Cor de background para EditText em foco.
+    -->
+    <color name="colorFieldFocused">#F2F9FF</color>
+
+    <!--
+        Cor de background da tela de proxy, quando
+        os dados de formulário estão sendo enviados
+        ao back-end Web.
+    -->
+    <color name="colorBackgroundProxy">#55FFFFFF</color>
+
+    <color name="colorTextBox">#EEEEEE</color>
+    <color name="colorTextBoxTransparent">#CCEEEEEE</color>
+    <color name="colorLighterGrey">#EFEFEF</color>
+
+    <color name="colorLightRed">#F85F62</color>
+    <color name="colorLightBlue">#00A4FF</color>
+
+    <color name="colorMediumYellow">#FFFFD840</color>
+    <color name="colorMediumRed">#FF0000</color>
+
+
+    <color name="fab_color_pressed">#007787</color>
+    <color name="fab_color_shadow">#44000000</color>
+
+    <color name="btn_default_light_normal">#00000000</color>
+    <color name="btn_default_light_pressed">#40ffffff</color>
+    <color name="btn_send_normal">#02c754</color>
+    <color name="btn_send_pressed">#006633</color>
+    <color name="btn_default_shadow">#99000000</color>
+    <color name="btn_context_menu_normal">#ffffff</color>
+    <color name="btn_context_menu_pressed">#40000000</color>
+    <color name="btn_context_menu_text_red">#ffff0000</color>
+
+    <color name="text_like_counter">#2b5a83</color>
+
+    <color name="bg_comments">#ffffff</color>
+
+
+    <color name="textColorPrimary">#442C2E</color>
+    <color name="toolbarIconColor">@color/textColorPrimary</color>
+    <color name="loginPageBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#FFFFFF</color>
+    <color name="textInputOutlineColor">#FBB8AC</color>
+
+
+    <color name="background">#2B292B</color>
+    <color name="background800">#424242</color>
+    <color name="background900">#212121</color>
+    <color name="white_56">#8effffff</color>
+    <color name="white_70">#b2ffffff</color>
+    <color name="white_87">#ddffffff</color>
+    <color name="white_93">#edf8f8f8</color>
+    <color name="white">#ffffffff</color>
+    <color name="skyBlue">#57A8D8</color>
+    <color name="md_yellow_100">#FFD600</color>
+    <color name="md_yellow_200">#FBC02D</color>
+    <color name="md_amber_700">#FFA000</color>
+    <color name="md_orange_100">#FFA726</color>
+    <color name="md_orange_200">#FF6D00</color>
+    <color name="md_green_100">#81C784</color>
+    <color name="md_green_200">#388E3C</color>
+    <color name="md_blue_100">#81D4fA</color>
+    <color name="md_blue_200">#0091EA</color>
+    <color name="md_purple_100">#AA00FF</color>
+    <color name="md_purple_200">#7200CA</color>
+
+
+    <color name="gradient_start">#5770f3</color>
+    <color name="gradient_end">#8e5aeb</color>
+    <color name="profile_desc">#D1D1FF</color>
+    <color name="bg_meta_container">#000000</color>
+    <color name="profile_default_tint">#e0e0e0</color>
+</resources>

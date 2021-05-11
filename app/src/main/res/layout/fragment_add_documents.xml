@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+     <variable
+         name="fragment"
+         type="com.zap.marvygroup.ui.documents.AddDocuments" />
+        <variable
+            name="viewModel"
+            type="com.zap.marvygroup.ui.documents.DocumentsViewModel" />
+    </data>
+  <RelativeLayout
+      android:background="@color/colorPrimaryDark"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/doc_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        tools:context=".ui.documents.AddDocuments">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Upload document or pdf file"/>
+            <TextView
+                android:textColor="@color/red_dark"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note: You can only upload a single file at a time"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:visibility="visible"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center|top"
+                android:backgroundTint="@color/white"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btn_image"
+                    android:onClick="@{(view) -> fragment.onImageButtonClick(view,viewModel)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="1dp"
+                        android:padding="10dp"
+                        android:background="@drawable/img_icon"/>
+
+                    <TextView
+                        android:id="@+id/iconTextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        style="@style/MatButton"
+                        android:text="Doc"
+                        android:fontFamily="@font/aclonica"
+                        android:textAllCaps="true"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_salary"
+                    android:onClick="@{(view) -> fragment.onPdfButtonClick(view,viewModel)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle"
+                    android:layout_weight="1"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="1dp"
+                        android:padding="10dp"
+                        android:background="@drawable/img_pdf"/>
+
+                    <TextView
+                        android:id="@+id/iconTextButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        style="@style/MatButton"
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:text="Pdf"
+                        android:fontFamily="@font/aclonica"
+                        android:textAllCaps="true"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_margin="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                    android:id="@+id/diaryImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    android:src="@drawable/no_photo_available"
+                    app:siShape="@drawable/shape_rounded_rectangle"
+                    app:siSquare="false" />
+
+                <TextView
+                    android:id="@+id/text_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red_dark"
+                    android:text="pdf file"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </FrameLayout>
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/add_document_progress"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                app:cpb_indeterminate_mode="true"
+                android:visibility="gone"
+                app:cpb_progress="0"
+                app:cpb_progress_max="100"
+                app:cpb_progressbar_color_start="#fff"
+                app:cpb_progressbar_color_end="#000"
+                app:cpb_background_progressbar_width="1dp"
+                app:cpb_progress_direction="to_right"
+                app:cpb_progressbar_color="@color/colorAccent"
+                app:cpb_progressbar_width="1dp"
+                app:cpb_round_border="false" />
+        </LinearLayout>
+    </FrameLayout>
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btn_upload"
+          style="@style/Widget.Shrine.Button_red"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="4dp"
+          android:background="@color/colorAccent_dup"
+          android:fontFamily="@font/aclonica"
+          android:padding="15dp"
+          android:text="Upload File"
+          android:layout_alignParentBottom="true"
+          android:textAllCaps="true"
+          android:visibility="gone"
+          android:textColor="@android:color/white"
+          android:textSize="12dp" />
+  </RelativeLayout>
+</layout>

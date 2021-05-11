@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.zap.marvygroup.ui.profile_image.ChangeProfileImage" />
+      <variable
+          name="viewModel"
+          type="com.zap.marvygroup.ui.profile_image.ChangeProfileImageViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="50dp"
+            android:visibility="gone"
+            android:src="@drawable/peter"
+            android:layout_gravity="center"
+            app:civ_border_color="#F0AE05"
+            app:civ_border_width="2dp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/headername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Change Image"
+            android:onClick="@{(view) -> fragment.onProfileImageClick(view,viewModel)}"
+            android:fontFamily="@font/numans"
+            android:textColor="@color/sunflower_white"
+            android:layout_gravity="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/employee_code"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/numans"
+            android:onClick="@{viewModel::uploadButtonClick}"
+            android:text="      Upload     " />
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/profile_progress"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            app:cpb_indeterminate_mode="true"
+            android:visibility="gone"
+            app:cpb_progress="0"
+            app:cpb_progress_max="100"
+            app:cpb_progressbar_color_start="#fff"
+            app:cpb_progressbar_color_end="#000"
+            app:cpb_background_progressbar_width="1dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/colorAccent"
+            app:cpb_progressbar_width="1dp"
+            app:cpb_round_border="false" />
+
+    </LinearLayout>
+</layout>

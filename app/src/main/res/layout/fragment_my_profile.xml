@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.zap.marvygroup.ui.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/profile_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:visibility="visible"
+        android:orientation="vertical"
+        tools:context=".ui.profile.MyProfile">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/plant_detail_app_bar_height"
+            android:animateLayoutChanges="true"
+            android:background="@color/colorPrimaryDark"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:collapsedTitleGravity="center"
+                app:contentScrim="?attr/colorSurface"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:statusBarScrim="?attr/colorSurface"
+                app:titleEnabled="false"
+                app:toolbarId="@id/toolbar">
+
+                <LinearLayout
+                    android:id="@+id/vUserProfileRoot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="?attr/colorPrimaryDark"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="24dp"
+                    android:paddingBottom="24dp"
+                    android:visibility="visible"
+                    app:layout_collapseMode="parallax">
+
+                        <LinearLayout
+                            android:id="@+id/vUserDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/ivUserProfilePhoto"
+                                android:layout_width="90dp"
+                                android:layout_height="90dp"
+                                app:civ_border_color="#F0AE05"
+                                app:civ_border_width="2dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/image"
+                                android:src="@{viewModel.project.photo, default=@drawable/peter}" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@{viewModel.project.emp_name}"
+                                android:textColor="#ffffff"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="2dp"
+                                android:gravity="center"
+                                android:text="@{viewModel.project.email}"
+                                android:textColor="#ffffff"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="2dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textAllCaps="false"
+                                android:text="@{viewModel.project.designation}"
+                                android:textColor="#ffffff"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                android:id="@+id/activityMain"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    app:cardUseCompatPadding="false"
+                    >
+                    <RelativeLayout
+                        android:id="@+id/card1_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Company : "
+                            android:textAllCaps="true"
+                            android:textColor="@color/orange"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txt_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/company"
+                            android:fontFamily="@font/numans"
+                            android:text="Company : "
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_companyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/company"
+                            android:layout_toEndOf="@+id/txt_company"
+                            android:fontFamily="@font/numans"
+                            android:singleLine="true"
+                            android:text="@{viewModel.project.company_name}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_company"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="City: "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_cityName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_company"
+                            android:layout_toRightOf="@+id/txt_city"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.company_city}"
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_city"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="State: "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_stateName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_city"
+                            android:layout_toRightOf="@+id/txt_city"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.company_state}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+
+                        <TextView
+                            android:id="@+id/txt_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_state"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Contact: "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_contact_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_state"
+                            android:layout_toRightOf="@+id/txt_contact"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.company_contact}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white"
+                            tools:text="Not Available" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/card1"
+                    android:layout_margin="1dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    app:cardUseCompatPadding="false"
+
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/card1_content2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/emp_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Employement Detail"
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="@color/orange"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txt_doj"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/emp_card"
+                            android:fontFamily="@font/numans"
+                            android:text="Date OF "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_doj_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/emp_card"
+                            android:layout_toRightOf="@+id/txt_doj"
+                            android:fontFamily="@font/numans"
+                            android:singleLine="true"
+                            android:text="@{viewModel.project.date_of_joining}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_department"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_doj"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Department: "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_department_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_doj"
+                            android:layout_toRightOf="@+id/txt_department"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.department}"
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_designation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_department"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Designation: "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_designationValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_department"
+                            android:layout_toRightOf="@+id/txt_designation"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.designation}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+
+                        <TextView
+                            android:id="@+id/txt_uan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_designation"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="UAN: "
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_uanValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_designation"
+                            android:layout_toRightOf="@+id/txt_uan"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.epf_uan}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_esic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_uan"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="ESIC: "
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_esicVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_uan"
+                            android:layout_toRightOf="@+id/txt_esic"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.esic}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_esic_clinic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_esic"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="ESIC Clinic: "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_esic_clinic_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_esic"
+                            android:layout_toRightOf="@+id/txt_esic_clinic"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.esic_clinic}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_pf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_esic_clinic"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="PF No. : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_pfVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_esic_clinic"
+                            android:layout_toRightOf="@+id/txt_pf"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.pf}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/card2"
+                    android:layout_margin="1dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    app:cardUseCompatPadding="false"
+
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/card_content3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/personal_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Personal Information"
+                            android:textAllCaps="true"
+                            android:textColor="@color/orange"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txt_qualification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/personal_info"
+                            android:fontFamily="@font/numans"
+                            android:text="Qualification : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_qualification_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/personal_info"
+                            android:layout_toRightOf="@+id/txt_qualification"
+                            android:fontFamily="@font/numans"
+                            android:singleLine="true"
+                            android:text="@{viewModel.project.qualification}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_qualification"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Email Id : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_email_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_qualification"
+                            android:layout_toRightOf="@+id/txt_email"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.email}"
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_email"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="State : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_dob_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_email"
+                            android:layout_toRightOf="@+id/txt_dob"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.city}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+
+                        <TextView
+                            android:id="@+id/txt_personal_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_dob"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Contact : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/personal_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_dob"
+                            android:layout_toRightOf="@+id/txt_personal_contact"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.phone}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_personal_contact"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Father / Husband : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_parent_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_personal_contact"
+                            android:layout_toRightOf="@+id/txt_parent"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.fatherhusband}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_parent"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Address : "
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/orange" />
+
+                        <TextView
+                            android:id="@+id/txt_address_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_address"
+                            android:fontFamily="@font/nunito_sans"
+                            android:gravity="start"
+                            android:text="@{viewModel.project.address}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+
+                        <TextView
+                            android:id="@+id/txt_permanent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_address_value"
+                            android:fontFamily="@font/nunito_sans"
+                            android:gravity="start"
+                            android:maxLines="1"
+                            android:text="Permanent Address : "
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/orange" />
+
+                        <TextView
+                            android:id="@+id/txt_address_value2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_permanent"
+                            android:fontFamily="@font/nunito_sans"
+                            android:gravity="start"
+                            android:text="@{viewModel.project.permanent_address}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/sunflower_white" />
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/card3"
+                    android:layout_margin="1dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/txt_bank"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Bank Account"
+                            android:textAllCaps="true"
+                            android:textColor="@color/orange"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txt_bankName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_bank"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Bank Name : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_bank_name_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_bank"
+                            android:layout_toRightOf="@id/txt_bankName"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.bank_name}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_account_holder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_bankName"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Account Holder's Name : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_holder_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_bankName"
+                            android:layout_toRightOf="@id/txt_account_holder"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.ac_holder}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_account"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_account_holder"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Account Number"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/account_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_account_holder"
+                            android:layout_toEndOf="@id/txt_account"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.ac_no}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_ifsc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_account"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="IFSC "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/ifsc_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_account"
+                            android:layout_toEndOf="@id/txt_ifsc"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.ifsc}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+
+                        <TextView
+                            android:id="@+id/txt_pan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_ifsc"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Pan Number : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/pan_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_ifsc"
+                            android:layout_toEndOf="@id/txt_pan"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.pan}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_adhar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_pan"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Aadhar Number : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_pan"
+                            android:layout_toEndOf="@id/txt_adhar"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="@{viewModel.project.aadhar}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/txt_payment_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_adhar"
+                            android:fontFamily="@font/nunito_sans"
+                            android:text="Payment Mode : "
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                        <TextView
+                            android:id="@+id/payment_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_adhar"
+                            android:layout_toEndOf="@id/txt_payment_mode"
+                            android:text="@{viewModel.project.payment_mode}"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="@color/iceWhite" />
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/profileProgressbar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            app:cpb_indeterminate_mode="true"
+            app:cpb_progress="0"
+            app:cpb_progress_max="100"
+            app:cpb_progressbar_color_start="#F40574"
+            app:cpb_progressbar_color_end="#E60F0F"
+            app:cpb_background_progressbar_width="1dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/red_dark2"
+            app:cpb_progressbar_width="1dp"
+            android:visibility="visible"
+            app:cpb_round_border="false" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

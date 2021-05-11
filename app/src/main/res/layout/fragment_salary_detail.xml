@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_design"
+        tools:context=".ui.salary.SalaryDetail">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/colorPrimary">
+            <!--  Update blank fragment layout -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/numans"
+                    android:text="Find Your Salary Detail"
+                    android:textColor="@color/iceWhite"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/current_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/header"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="Current Time Stamp"
+                    android:textColor="@color/iceWhite" />
+
+                <RelativeLayout
+                    android:id="@+id/month_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/current_time">
+
+                    <TextView
+                        android:id="@+id/txt_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:text="SELECT MONTH"
+                        android:textColor="@color/iceWhite" />
+
+                    <Spinner
+                        android:id="@+id/month_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txt_month"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:gravity="center"
+                        android:spinnerMode="dropdown" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/salary_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/month_container">
+
+                    <TextView
+                        android:id="@+id/txt_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:text="SELECT YEAR"
+                        android:textColor="@color/iceWhite" />
+
+                    <Spinner
+                        android:id="@+id/year_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txt_year"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:gravity="center"
+                        android:spinnerMode="dropdown" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_show_salary"
+                    style="@style/Widget.Shrine.Button_red"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/salary_container"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:background="@color/colorAccent"
+                    android:fontFamily="@font/aclonica"
+                    android:padding="12dp"
+                    android:text="Show Salary"
+                    android:textColor="@android:color/white"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</layout>

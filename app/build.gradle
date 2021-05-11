@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+//kotlin kapt and navigation safeargs plugin
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.zap.marvygroup"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.2"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        packagingOptions {
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/NOTICE.txt'
+        }
+        lintOptions {
+            abortOnError false
+            ignoreWarnings true
+            checkReleaseBuilds false
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}
+def lifeCycleExtensionVersion = '2.2.0'
+def supportVersion = '28.0.0'
+def coroutineSupportVersion = '1.3.2'
+def retrofitVersion = '2.6.2'
+def gsonSupportVersion = '2.6.0'
+def viewmodelVersion = '2.2.0'
+def materialVersion = '1.2.0-alpha05'
+def glideVersion = '4.9.0'
+def rxJavaVersion = '2.1.1'
+def roomVersion = '2.2.3'
+def navVersion = '2.2.0'
+def preferencesVersion = '1.1.0'
+def kodeinVersion = '6.2.1'
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleExtensionVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleExtensionVersion"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifeCycleExtensionVersion"
+//Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineSupportVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineSupportVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutineSupportVersion"
+    //Retrofit and GSON
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsonSupportVersion"
+    implementation 'id.zelory:compressor:3.0.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodelVersion"
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //File compressor
+    implementation 'me.shouheng.compressor:compressor:1.3.5'
+    //New Material Design
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    //Android Room
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    //File Picker library
+    implementation 'com.afollestad.inline-activity-result:core:0.2.0'
+    //Fast Networking Library
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    // Dexter for runtime permission
+    implementation 'com.karumi:dexter:5.0.0'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation 'com.github.kk121:File-Loader:1.2'
+
+    //Android Navigation Architecture
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+    implementation "androidx.preference:preference-ktx:$preferencesVersion"
+    // Kodein Life cycle
+    // Kotlin dependency injection
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodeinVersion"
+
+    // circular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //Circular Progressbar
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    // Pdf viewer
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    // circular imageview
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+    // InApp Update
+    implementation 'eu.dkaratzas:android-inapp-update:1.0.5'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}

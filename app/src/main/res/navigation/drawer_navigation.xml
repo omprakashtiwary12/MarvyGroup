@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_navigation"
+    android:label="Attendance"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@id/nav_home"
+        android:name="com.zap.marvygroup.ui.fragments.HomeFragment"
+        android:label="@string/fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_attendenceFragment"
+            app:destination="@id/attendenceFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@+id/attendenceFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_salaryDetail"
+            app:destination="@id/salaryDetail" />
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+        <action
+            android:id="@+id/action_nav_home_to_uploadedDocuments"
+            app:destination="@id/export_img" />
+        <action
+            android:id="@+id/action_nav_home_to_uploadedPdf"
+            app:destination="@id/export_pd" />
+        <action
+            android:id="@+id/action_nav_home_to_export_img"
+            app:destination="@id/export_img" />
+    </fragment>
+    <fragment
+        android:id="@id/my_profile"
+        android:name="com.zap.marvygroup.ui.profile.MyProfile"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_my_profile" >
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+
+    <fragment
+        android:id="@id/contact_us"
+        android:name="com.zap.marvygroup.ui.contactus.ContactUs"
+        android:label="@string/fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" >
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+    <fragment
+        android:id="@id/documents"
+        android:name="com.zap.marvygroup.ui.documents.AddDocuments"
+        android:label="@string/fragment_add_documents"
+        tools:layout="@layout/fragment_add_documents" >
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+    <fragment
+        android:id="@id/logout"
+        android:name="com.zap.marvygroup.ui.fragments.LogoutFragment"
+        android:label="@string/fragment_logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/attendenceFragment"
+        android:name="com.zap.marvygroup.ui.attendance.AttendenceFragment"
+        android:label="Attendence"
+        tools:layout="@layout/fragment_attendence" >
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+    <fragment
+        android:id="@+id/salaryDetail"
+        android:name="com.zap.marvygroup.ui.salary.SalaryDetail"
+        android:label="SalaryDetail"
+        tools:layout="@layout/fragment_salary_detail">
+        <action
+            android:id="@+id/action_salaryDetail_to_sailarySheet"
+            app:destination="@id/sailarySheet" />
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+    <fragment
+        android:id="@+id/sailarySheet"
+        android:name="com.zap.marvygroup.ui.fragments.SailarySheet"
+        android:label="SailarySheet" />
+    <fragment
+        android:id="@+id/changeProfileImage"
+        android:name="com.zap.marvygroup.ui.profile_image.ChangeProfileImage"
+        android:label="UpdateProfile"
+        tools:layout="@layout/change_profile_image_fragment" >
+        <action
+            android:id="@+id/action_changeProfileImage_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_changeProfileImage_to_export_img"
+            app:destination="@id/export_img" />
+    </fragment>
+    <fragment
+        android:id="@id/export_img"
+        android:name="com.zap.marvygroup.ui.uploaded_documents.UploadedDocuments"
+        android:label="MyDocuments"
+        tools:layout="@layout/uploaded_documents_fragment" >
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+    <fragment
+        android:id="@id/export_pd"
+        android:name="com.zap.marvygroup.ui.uploaded_pdf.UploadedPdf"
+        android:label="Uploaded Pdf" >
+        <action
+            android:id="@+id/action_nav_home_to_changeProfileImage"
+            app:destination="@id/changeProfileImage" />
+    </fragment>
+</navigation>

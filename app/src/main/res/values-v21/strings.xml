@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gps_status_enabled">Enable your GPS</string>
+    <string name="gps_status_disabled">GPS disabled</string>
+</resources>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.fragments.HomeFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<include
+    android:visibility="gone"
+    android:id="@+id/header_duplicate"
+    layout="@layout/nav_header_nav_drawer"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_layout"
+        android:layout_below="@+id/header_duplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|top"
+            android:backgroundTint="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/btn_attendence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/mapmarker" />
+
+                <TextView
+                    android:id="@+id/iconTextButton"
+                    style="@style/MatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/aclonica"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:text="Attendence"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:background="@drawable/rectangle"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/rupaye" />
+
+                <TextView
+                    android:id="@+id/iconTextButton2"
+                    style="@style/MatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="@font/aclonica"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:text="View Salary"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <View
+        android:id="@+id/view_line"
+        android:layout_below="@+id/card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="-40dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_below="@+id/view_line">
+
+           <Button
+               android:id="@+id/btn_show_attendance"
+               android:backgroundTint="@color/colorPrimaryDark"
+               android:text="Attendance"
+               android:textColor="@color/white"
+               style="@style/Base.Theme.Sunflower"
+               android:layout_width="match_parent"
+               android:gravity="center"
+               android:padding="10dp"
+               android:elevation="10dp"
+               android:layout_marginTop="@dimen/_40sdp"
+               android:background="@drawable/button_rectangle"
+               android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_view_salary"
+            android:layout_below="@+id/btn_show_attendance"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="View Salary"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/white"
+            style="@style/Base.Theme.Sunflower"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:elevation="10dp"
+            android:background="@drawable/button_rectangle"
+            android:layout_height="wrap_content"/>
+           <Button
+               android:id="@+id/btn_upload_documents"
+               android:layout_below="@+id/btn_view_salary"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:backgroundTint="@color/colorPrimaryDark"
+               android:text="Documents"
+               android:padding="10dp"
+               android:elevation="10dp"
+               android:background="@drawable/button_rectangle"
+               android:textColor="@color/white"
+               style="@style/Base.Theme.Sunflower"
+               android:layout_width="match_parent"
+               android:gravity="center"
+               android:layout_height="wrap_content"/>
+           <Button
+               android:id="@+id/btn_form16_documents"
+               android:layout_below="@+id/btn_upload_documents"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:backgroundTint="@color/colorPrimaryDark"
+               android:text="Form-16"
+               android:padding="10dp"
+               android:elevation="10dp"
+               android:background="@drawable/button_rectangle"
+               android:textColor="@color/white"
+               style="@style/Base.Theme.Sunflower"
+               android:layout_width="match_parent"
+               android:gravity="center"
+               android:layout_height="wrap_content"/>
+
+       </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

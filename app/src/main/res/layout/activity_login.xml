@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.zap.marvygroup.ui.auth.AuthViewModel" />
+    </data>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/activityMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_design">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/Base.Theme.Sunflower"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="60dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="40dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/app_logo"
+                        android:src="@drawable/marvy_app_sticker"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/app_name_logo"
+                        android:layout_below="@+id/app_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top"
+                        android:text="Marvy Group"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_centerHorizontal="true"
+                        android:textAllCaps="true"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:text="@string/policy"
+                        android:textColor="@color/colorAccent_dup"
+                        android:layout_marginTop="12dp"
+                        android:textSize="16dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/app_name_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt_apply"
+                        android:layout_below="@+id/tv1"
+                        android:text="@string/apply_for_a_job"
+                        android:onClick="@{viewModel::onApplyButtonClicked}"
+                        android:textColor="@color/red_dark2"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_marginTop="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_container_fields"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv1"
+                        android:orientation="vertical"
+                        android:layout_marginTop="95dp"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/et_email"
+                            style="@style/Widget.Shrine.TextInputLayout"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            app:counterEnabled="false"
+                            app:counterMaxLength="10"
+                            android:hint="@string/employee_code"
+                            android:fontFamily="@font/numans"
+                            android:layout_gravity="center"
+                            app:errorEnabled="true"
+                            app:helperTextEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:text="@={viewModel.username}"
+                                android:textSize="12dp"
+                                android:inputType="textPhonetic"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/et_password"
+                            style="@style/Widget.Shrine.TextInputLayout"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            app:counterEnabled="false"
+                            android:hint="@string/password"
+                            app:passwordToggleEnabled="true"
+                            android:fontFamily="@font/numans"
+                            android:layout_gravity="center"
+                            app:errorEnabled="true"
+                            app:helperTextEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:text="@={viewModel.password}"
+                                android:textSize="12dp"
+                                android:inputType="textPassword"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.Shrine.Button_red"
+                            android:id="@+id/login"
+                            android:onClick="@{viewModel::onLoginButtonClick}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:padding="12dp"
+                            android:background="@color/colorAccent"
+                            android:text="@string/login"
+                            android:fontFamily="@font/numans"
+                            android:textColor="@android:color/white"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txt_forgot"
+                            android:text="Forgot Password?"
+                            android:layout_below="@+id/ll_container_fields"
+                            android:fontFamily="@font/numans"
+                            android:onClick="@{viewModel::onForgotButtonClicked}"
+                            android:textSize="14dp"
+                            android:textAllCaps="true"
+                            android:padding="10dp"
+                            android:layout_gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/colorAccent_dup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        app:cpb_indeterminate_mode="true"
+        android:visibility="gone"
+        app:cpb_progress="0"
+        app:cpb_progress_max="100"
+        app:cpb_progressbar_color_start="#fff"
+        app:cpb_progressbar_color_end="#000"
+        app:cpb_background_progressbar_width="1dp"
+        app:cpb_progress_direction="to_right"
+        app:cpb_progressbar_color="@color/colorAccent"
+        app:cpb_progressbar_width="1dp"
+        app:cpb_round_border="false" />
+
+</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
